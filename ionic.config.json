@@ -1,0 +1,7 @@
+{
+  "name": "fontastik",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}

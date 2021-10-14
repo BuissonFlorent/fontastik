@@ -33,7 +33,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-  ],
+    , "src/firebaseConfig.ts", "src/types/*.d.ts", "declaratiosrc/types/declarations.d.tstions.d.ts", "src/constants.ts"  ],
   "exclude": [
     "node_modules"
   ]

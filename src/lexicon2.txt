@@ -1,0 +1,49 @@
+cardID;fonWriting;frenchWriting;nextReview
+0;oku;salut;2000-10-13T13:09:37.020Z
+1;a fɔn ganji à?;est-ce que tu t'es bien réveillé ? [salutation pour le matin];2000-10-13T13:09:37.020Z
+2;ɛɛn un fɔn ganji; oui, je me suis bien réveillé [réponse à la salutation pour le matin];2000-10-13T13:09:37.020Z
+3;ku d'azɔ;merci;2000-10-13T13:09:37.020Z
+4;tɛnigbè;lundi;2000-10-13T13:09:37.020Z
+5;odé;un (chiffre);2000-10-13T13:09:37.020Z
+6;sɔ e wa yi e;hier;2000-10-13T13:09:37.020Z
+7;amaga;la mangue;2000-10-13T13:09:37.020Z
+8;ta;la tête;2000-10-13T13:09:37.020Z
+9;xɔ;acheter;2000-10-13T13:09:37.020Z
+10;taatagbè;mardi;2000-10-13T13:09:37.020Z
+11;owe;deux (chiffre);2000-10-13T13:09:37.020Z
+12;zanzan;le matin;2000-10-13T13:09:37.020Z
+13;vìvɛ;cher, coûteux,  d'un prix élevé;2000-10-13T13:09:37.020Z
+14;azangagbè;mercredi;2000-10-13T13:09:37.020Z
+15;atɔn;trois (chiffre);2000-10-13T13:09:37.020Z
+16;gbada(nu);le soir;2000-10-13T13:09:37.020Z
+17;nyɔnuzanbgè;jeudi;2000-10-13T13:09:37.020Z
+18;enɛ;quatre (chiffre);2000-10-13T13:09:37.020Z
+19;zan;la nuit;2000-10-13T13:09:37.020Z
+20;axɔsuzangbè;vendredi;2000-10-13T13:09:37.020Z
+21;atɔɔn;cinq (chiffre);2000-10-13T13:09:37.020Z
+22;nukún;l'œil;2000-10-13T13:09:37.020Z
+23;kwekwe;la banane;2000-10-13T13:09:37.020Z
+24;sibigbè;samedi;2000-10-13T13:09:37.020Z
+25;sɔ e ja e;demain;2000-10-13T13:09:37.020Z
+26;ayizin;six (chiffre);2000-10-13T13:09:37.020Z
+27;ɖa;le cheveu;2000-10-13T13:09:37.020Z
+28;gŭ;gaspiller;2000-10-13T13:09:37.020Z
+29;aklunɔzangbè;dimanche;2000-10-13T13:09:37.020Z
+30;tɛnwe;sept (chiffre);2000-10-13T13:09:37.020Z
+31;sun(zan);le mois de l'année;2000-10-13T13:09:37.020Z
+32;vodungbè;dimanche;2000-10-13T13:09:37.020Z
+33;tantɔn;huit (chiffre);2000-10-13T13:09:37.020Z
+34;caki ɖokpo;mille francs;2000-10-13T13:09:37.020Z
+35;agɔn;la noix de coco, l'ananas;2000-10-13T13:09:37.020Z
+36;(li)xwé;l'année;2000-10-13T13:09:37.020Z
+37;tɛnnɛ;neuf (chiffre);2000-10-13T13:09:37.020Z
+38;(a)kwɛ;l'argent, la monnaie;2000-10-13T13:09:37.020Z
+39;afɔ;le pied;2000-10-13T13:09:37.020Z
+40;wô;dix (chiffre);2000-10-13T13:09:37.020Z
+41;ounon gni …;je m'appelle …;2000-10-13T13:09:37.020Z
+42;Nan bi min-sa é-lô?;combien ça coute ?;2000-10-13T13:09:37.020Z
+43;kpɔwun;cinquante;2000-10-13T13:09:37.020Z
+44;o dabo;au revoir;2000-10-13T13:09:37.020Z
+45;oun toun anh;je ne sais pas;2000-10-13T13:09:37.020Z
+46;alɔ̀;la main;2000-10-13T13:09:37.020Z
+47;egbe;aujourd'hui;2000-10-13T13:09:37.020Z

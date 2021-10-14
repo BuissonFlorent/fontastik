@@ -1,0 +1,49 @@
+cardID;fonWriting;frenchWriting;nextReview
+0;oku;salut;0
+1;a fɔn ganji à?;est-ce que tu t'es bien réveillé ? [salutation pour le matin];0
+2;ɛɛn un fɔn ganji; oui, je me suis bien réveillé [réponse à la salutation pour le matin];0
+3;ku d'azɔ;merci;0
+4;tɛnigbè;lundi;0
+5;odé;un (chiffre);0
+6;sɔ e wa yi e;hier;0
+7;amaga;la mangue;0
+8;ta;la tête;0
+9;xɔ;acheter;0
+10;taatagbè;mardi;0
+11;owe;deux (chiffre);0
+12;zanzan;le matin;0
+13;vìvɛ;cher, coûteux,  d'un prix élevé;0
+14;azangagbè;mercredi;0
+15;atɔn;trois (chiffre);0
+16;gbada(nu);le soir;0
+17;nyɔnuzanbgè;jeudi;0
+18;enɛ;quatre (chiffre);0
+19;zan;la nuit;0
+20;axɔsuzangbè;vendredi;0
+21;atɔɔn;cinq (chiffre);0
+22;nukún;l'œil;0
+23;kwekwe;la banane;0
+24;sibigbè;samedi;0
+25;sɔ e ja e;demain;0
+26;ayizin;six (chiffre);0
+27;ɖa;le cheveu;0
+28;gŭ;gaspiller;0
+29;aklunɔzangbè;dimanche;0
+30;tɛnwe;sept (chiffre);0
+31;sun(zan);le mois de l'année;0
+32;vodungbè;dimanche;0
+33;tantɔn;huit (chiffre);0
+34;caki ɖokpo;mille francs;0
+35;agɔn;la noix de coco, l'ananas;0
+36;(li)xwé;l'année;0
+37;tɛnnɛ;neuf (chiffre);0
+38;(a)kwɛ;l'argent, la monnaie;0
+39;afɔ;le pied;0
+40;wô;dix (chiffre);0
+41;ounon gni …;je m'appelle …;0
+42;Nan bi min-sa é-lô?;combien ça coute ?;0
+43;kpɔwun;cinquante;0
+44;o dabo;au revoir;0
+45;oun toun anh;je ne sais pas;0
+46;alɔ̀;la main;0
+47;egbe;aujourd'hui;0

@@ -5,7 +5,8 @@
             :fields="{ 
                 cardID: {required:true, label:'card ID'},
                 fonWriting: {required:true, label:'fon writing'},
-                frenchWriting: {required:true, label:'french writing'}
+                frenchWriting: {required:true, label:'french writing'},
+                nextReview: {required:true, label:'next review stamp'}
             }"
         >
             <p><vue-csv-toggle-headers></vue-csv-toggle-headers></p>
@@ -13,7 +14,10 @@
             <p><vue-csv-input></vue-csv-input></p>
             <p><vue-csv-map></vue-csv-map></p>
         </vue-csv-import>
-        <p><button @click="sendCardData(fileArray)">Click to send card data</button></p>
+        <p>
+            <ion-button @click="addCardData(fileArray)">Add new cards</ion-button>
+            <ion-button @click="updateCardData(fileArray)">Update existing cards</ion-button>
+        </p>
         <table>
             <thead>
                 <tr>
@@ -30,7 +34,7 @@
 
 <script lang="ts">
 import { firestoreDB } from '@/firebaseConfig';
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, updateDoc } from "firebase/firestore";
 import { ref } from 'vue';
 import { VueCsvImport, VueCsvToggleHeaders, VueCsvErrors, VueCsvInput, VueCsvMap } from 'vue-csv-import';
 import { Card } from "@/interfaces";
@@ -41,22 +45,37 @@ export default {
     setup() {
 
         // Defining the card format for the table
-        const colNames = ["cardID", "fonWriting", "frenchWriting"];
+        const colNames = ["cardID", "fonWriting", "frenchWriting", "nextReview"];
         const fileArray = ref(Array<Card>())
 
-        const sendCardData = (a: Array<Card>) => {
+        const addCardData = (a: Array<Card>) => {
             console.log("number of cards in array", a.length);
             a.forEach((card) => {
-                console.log("card: ", card.cardID);
+                console.log(`adding card: ${card.cardID}`);
                 setDoc(doc(firestoreDB, "cards", card.cardID), {
                     cardID: card.cardID,
                     fonWriting: card.fonWriting,
                     frenchWriting: card.frenchWriting,
-                    nextReview: "0"
+                    nextReview: card.nextReview
                 })
             });
         }
-        return { colNames, sendCardData, fileArray }
+
+        const updateCardData = (a: Array<Card>) => {
+            console.log("number of cards in array", a.length);
+            a.forEach((card) => {
+                console.log(`updating card: ${card.cardID}`);
+                const cardRef = doc(firestoreDB, "cards", card.cardID);
+                updateDoc(cardRef, {
+                    cardID: card.cardID,
+                    fonWriting: card.fonWriting,
+                    frenchWriting: card.frenchWriting,
+                    nextReview: card.nextReview
+                })
+            });
+        }
+
+        return { colNames, addCardData, updateCardData, fileArray }
     },
     components: { VueCsvImport, VueCsvToggleHeaders, VueCsvErrors, VueCsvInput, VueCsvMap }
 }

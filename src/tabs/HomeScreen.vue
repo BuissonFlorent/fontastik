@@ -42,8 +42,9 @@ export default  {
             // Attempting to get cards from DB otherwise
             } else {
                 store.dispatch('getCardsFromDB').then(() => {
-                store.dispatch('initializeDeck') });
-                store.commit('setLocalCards');
+                    store.dispatch('setLocalCards');
+                    store.dispatch('initializeDeck');
+                });
             } 
         }
 

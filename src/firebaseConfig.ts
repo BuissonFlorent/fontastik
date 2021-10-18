@@ -20,5 +20,6 @@ const firebaseApp = firebase.initializeApp({
 const firestoreDB = getFirestore(firebaseApp);
 const cardsCollection = collection(firestoreDB, 'cards');
 const usersCollection = collection(firestoreDB, 'users');
+const reviewsCollection = collection(firestoreDB, 'reviews');
 
-export { firestoreDB, cardsCollection, usersCollection }
+export { firestoreDB, cardsCollection, usersCollection, reviewsCollection }

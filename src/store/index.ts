@@ -1,6 +1,6 @@
 import { createStore } from 'vuex';
-import { cardsCollection } from '@/firebaseConfig';
-import { getDocs } from "firebase/firestore";
+import { cardsCollection, reviewsCollection } from '@/firebaseConfig';
+import { getDocs, addDoc } from "firebase/firestore";
 import { Card, Review, User, State } from "@/interfaces";
 
 export const store = createStore({
@@ -31,7 +31,7 @@ export const store = createStore({
                 state.cards = localCards;
                 state.cards.map((c) => { c.nextReview = new Date(c.nextReview)})
                 console.log(`successfully loaded ${store.state. cards.length} cards from the local storage`);
-                console.log(`the first card is ${store.state.cards[0]}`)
+                console.log(`the first card is ${store.state.cards[0].fonWriting}`)
             } catch(e) {
                 console.log("an error occurred while trying to load cards from the local storage");
                 console.log(e);
@@ -39,7 +39,7 @@ export const store = createStore({
         },
         getUser(state: State) {
             try {
-                console.log("initiating getUser");
+                console.log("starting getUser()");
                 const localUser: User = JSON.parse(localStorage.getItem('userInfo') || "{}")
                 state.user = localUser;
             } catch(e) {
@@ -47,10 +47,12 @@ export const store = createStore({
                 console.log(e);
             }
         },
-
         setLocalCards(state: State) {
+            console.log(`starting setLocalCards()`);
             try {
-                localStorage.setItem('cards', JSON.stringify(state.cards));
+                const exportCards = Object.assign({}, state.cards);
+                console.log(`first card in exportCards is ${exportCards[0].fonWriting}`);
+                localStorage.setItem('cards', JSON.stringify(exportCards));
                 console.log("successfully added cards to the local storage");
             } catch(e) {
                 console.log("an error occurred while trying to add cards to the local storage");
@@ -67,14 +69,12 @@ export const store = createStore({
             }
         },
         initializeDeck(state: State) {
-            console.log("initiating initializeDeck");
+            console.log(`starting initializeDeck()`);
+            console.log(`the first card in the store state has nextReview=${state.cards[0].nextReview}`)
             const maxDailyNew = 5;
             const maxDailyTotal = 10;
-            console.log("Number of cards in store state: ", state.cards.length)
 
         //Determining which cards to review, and in what order, based on past review outcomes
-            console.log(`nextReview for the first card is ${ state.cards[0].nextReview}`)
-            console.log(`the type of the first card's nextReview is ${typeof(state.cards[0].nextReview)}`);
             const cardsDue = state.cards.filter((card: Card) => card.nextReview.getFullYear() > 2020 && card.nextReview <= new Date)
             const cardsUnseen = state.cards.filter((card: Card) =>  card.nextReview.getFullYear() <= 2020 )
             console.log("There are ", cardsDue.length, " cards due and ", cardsUnseen.length, " cards unseen.")
@@ -117,26 +117,32 @@ export const store = createStore({
             console.log("logged review is ", loggedReview.cardID, "with known =", loggedReview.known, " at ", loggedReview.time);  
         },
         setCardNextReview(state: State, known: boolean) {
+            console.log(`the parameter "known" passed to setCardNextReview is ${known}`)
             const currentCard = state.deck[0];
             console.log(`card ${currentCard.fonWriting} at the beginning of setCardNextReview has nextReview equal to ${currentCard.nextReview}`);
-            const currentCardReviews = store.state.reviews.filter((r: Review) => (r.cardID == currentCard.cardID));
+            const currentCardReviews: Array<Review> = store.state.reviews.filter((r: Review) => (r.cardID == currentCard.cardID));
             const setReview = new Date;
             const oneDay = 24 * 60 * 60; // number of seconds per day
             const oneHour = 60 * 60; //number of seconds per hour
             // Card unknown, regardless of previous status
-            if (!known) { 
+            if (known === false) { 
+                console.log(`setCardNextReview: first IF`)
                 // Set the card to be reviewed in 10 seconds
                 setReview.setSeconds(setReview.getSeconds() + 10);
             // card previously unseen but known
             } else if (known && currentCardReviews.length == 1) {
+                console.log(`setCardNextReview: second IF`)
                 setReview.setDate(setReview.getDate() + 30);
             // card previously reviewed and known
             } else if (known && currentCardReviews.length > 1) {
+                console.log(`setCardNextReview: third IF`)
                 //Calculate last review interval in seconds
                 currentCardReviews.sort((a: Review, b: Review) => (a.time > b.time) ? -1 : 1)
-                const lastDuration = (currentCardReviews[0].time.getTime() - currentCardReviews[1].time.getTime()) / 1000; 
+                const lastReview = currentCardReviews[0];
+                const secondToLastReview = currentCardReviews[1];
+                const lastDuration = (lastReview.time.getTime() - secondToLastReview.time.getTime()) / 1000; 
                 console.log("the time difference in seconds between the last two reviews was ", lastDuration);
-                if(lastDuration < 60) {
+                if(lastDuration < 60 && secondToLastReview.known == false) {
                     setReview.setSeconds(setReview.getSeconds() + 60);
                 } else {
                     const nextDuration = Math.max(lastDuration * 2, oneDay);
@@ -151,23 +157,34 @@ export const store = createStore({
             console.log(`card ${currentCard.fonWriting} now has nextReview equal to ${currentCard.nextReview}`);
             //Popping the card from the deck if it shouldn't be reviewed anymore that day
             const now = new Date;
-            if((setReview.getTime() - now.getTime()) / 1000 >= oneHour && state.deck.length > 1) { 
+            const nextDelay = (setReview.getTime() - now.getTime()) / 1000;
+            console.log(`${nextDelay} seconds until the next review for this card`);
+            if(nextDelay >= oneHour && state.deck.length >= 1) { 
                 const shiftedCard = state.deck.shift();
                 console.log(`shifted ${shiftedCard!.fonWriting} from the deck`)
             }
+        },
+        sendReviewsToDB(state: State) {
+            console.log("starting sendReviewsToDB()");
+            const sessionReviews = state.reviews;
+            sessionReviews.forEach((review) => {
+                addDoc(reviewsCollection, review)
+            });
+            console.log(`${sessionReviews.length} reviews sent to the DB`)
 
         }
     },
     actions : {
         getCardsFromDB({ commit }: { commit: Function }) {
-            console.log("initiating getCardsFromDB");
+            console.log("starting getCardsFromDB()");
             return new Promise<void>((resolve) => {
                 getDocs(cardsCollection)
                 .then((querySnapshot) => {
-                    const tempCards = Array<Card>();
+                    const tempCards = Array<any>();
                     querySnapshot.forEach((doc) => {
-                        tempCards.push(doc.data() as Card);
+                        tempCards.push(doc.data());
                     });
+                    tempCards.forEach((c) => c.nextReview = new Date(c.nextReview))
                     commit('setStoreCards', tempCards)
                     console.log(`successfully loaded ${store.state.cards.length} cards from the database`);
                     resolve();
@@ -177,7 +194,9 @@ export const store = createStore({
         },
         initializeDeck({ commit }: { commit: Function }) {
             commit('initializeDeck')
+        },
+        setLocalCards({ commit }: { commit: Function }) {
+            commit('setLocalCards')
         }
-
     }
 });

@@ -8,6 +8,7 @@ export type Card = {
 }
 
 export type Review = {
+    readonly reviewID?: string;
     readonly cardID: string;
     readonly userID: string;
     readonly time: Date;

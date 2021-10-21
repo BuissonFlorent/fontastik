@@ -8,12 +8,12 @@
                     v-if="!showTranslation && showCard"
                     fill="outline" 
                     slot="end"
-                >Show translation</ion-button>
+                >Montrer la traduction</ion-button>
             </ion-item>
             <ion-item v-if="showTranslation && showCard">
                 <ion-label>{{ frenchWriting }}</ion-label>
-                <ion-button fill="outline" slot="end" @click="reviewOutcome(false)">I didn't know it</ion-button>
-                <ion-button fill="outline" slot="end" @click="reviewOutcome(true)">I knew it</ion-button>
+                <ion-button fill="outline" slot="end" @click="reviewOutcome(false)">Je ne le savais pas</ion-button>
+                <ion-button fill="outline" slot="end" @click="reviewOutcome(true)">Je le savais</ion-button>
             </ion-item>
         </ion-card>
         <ion-item v-if="!showCard">

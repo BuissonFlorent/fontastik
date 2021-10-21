@@ -126,16 +126,16 @@ export const store = createStore({
             const oneHour = 60 * 60; //number of seconds per hour
             // Card unknown, regardless of previous status
             if (known === false) { 
-                console.log(`setCardNextReview: first IF`)
+                console.log(`setCardNextReview: 1. card unknown`)
                 // Set the card to be reviewed in 10 seconds
                 setReview.setSeconds(setReview.getSeconds() + 10);
             // card previously unseen but known
             } else if (known && currentCardReviews.length == 1) {
-                console.log(`setCardNextReview: second IF`)
+                console.log(`setCardNextReview: 2. card previously unseen but known`)
                 setReview.setDate(setReview.getDate() + 30);
             // card previously reviewed and known
             } else if (known && currentCardReviews.length > 1) {
-                console.log(`setCardNextReview: third IF`)
+                console.log(`setCardNextReview: 3. card previously reviewed and known`)
                 //Calculate last review interval in seconds
                 currentCardReviews.sort((a: Review, b: Review) => (a.time > b.time) ? -1 : 1)
                 const lastReview = currentCardReviews[0];

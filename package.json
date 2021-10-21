@@ -24,6 +24,7 @@
     "cordova-res": "^0.15.3",
     "core-js": "^3.6.5",
     "firebase": "^9.0.2",
+    "firebaseui": "^5.0.0",
     "native-run": "^1.4.1",
     "postcss": "^8.3.7",
     "vue": "^3.2.1",

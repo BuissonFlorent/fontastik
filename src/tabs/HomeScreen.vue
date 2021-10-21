@@ -2,7 +2,7 @@
     <ion-page>
         <ion-header>
         <ion-toolbar>
-            <ion-title>Home Screen (toolbar)</ion-title>
+            <ion-title>Ecran principal</ion-title>
         </ion-toolbar>
         </ion-header>
         <ion-content :fullscreen="true">
@@ -12,12 +12,14 @@
                 </ion-toolbar>
                 <h1> Bienvenue sur Fontastik! </h1>
             </ion-header>
+        <login />
         </ion-content>
     </ion-page>
 </template>
 
 <script lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
+import Login from '@/components/Login.vue';
 import { onMounted } from 'vue';
 import { useStore } from 'vuex';
 
@@ -25,7 +27,7 @@ import { useStore } from 'vuex';
 
 export default  {
     name: 'Home Screen',
-    components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage },
+    components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, Login },
     setup() {
 
      // INITIALIZING SESSION

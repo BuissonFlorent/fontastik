@@ -1,10 +1,1 @@
 cardID;fonWriting;frenchWriting;nextReview
-48;a ɖo ɖagbe à ?;comment allez-vous?;"2000-10-13T13:09:37.020Z"
-49;gbɔ se à !; pardon!;"2000-10-13T13:09:37.020Z"
-50; bo yi bo wá; au revoir;"2000-10-13T13:09:37.020Z"
-51; a wà nŭ; merci;"2000-10-13T13:09:37.020Z"
-52; un nɔ nyi...;je m'appelle;"2000-10-13T13:09:37.020Z"
-53; àmyɔ̀; gauche (direction);"2000-10-13T13:09:37.020Z"
-54; xovε sin mi; j'ai faim;"2000-10-13T13:09:37.020Z"
-55; ɖìsí; droite (direction);"2000-10-13T13:09:37.020Z"
-56; fitɛ wulɛkpa lɛ ɖe ?; où sont les toilettes ?;"2000-10-13T13:09:37.020Z"

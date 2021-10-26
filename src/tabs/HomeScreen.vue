@@ -2,7 +2,7 @@
     <ion-page>
         <ion-header>
         <ion-toolbar>
-            <ion-title>Ecran principal</ion-title>
+            <ion-title>Page d'accueil</ion-title>
         </ion-toolbar>
         </ion-header>
         <ion-content :fullscreen="true">
@@ -12,7 +12,9 @@
                 </ion-toolbar>
                 <h1> Bienvenue sur Fontastik! </h1>
             </ion-header>
-        <login />
+
+        <login v-if="!userRegistered" />
+
         </ion-content>
     </ion-page>
 </template>
@@ -54,14 +56,14 @@ export default  {
         const initSession = () => {
             //console.log("mounting Home Screen...");
             if(userRegistered) {
-                //console.log("user registered: ", userRegistered);
+                console.log("user registered: ", userRegistered);
                 store.commit('getUser');
                 getCards();
             }
         }
         onMounted(initSession)
 
-        return { }
+        return { userRegistered }
     }
 }
 </script>

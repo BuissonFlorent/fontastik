@@ -2,7 +2,7 @@
     <ion-page>
         <ion-header>
             <ion-toolbar>
-                <ion-title>Review screen</ion-title>
+                <ion-title>Apprentissage</ion-title>
             </ion-toolbar>
         </ion-header>
         <FlashCard/>

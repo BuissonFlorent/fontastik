@@ -5,17 +5,17 @@
             <ion-tab-bar slot="bottom">
                 <ion-tab-button tab="home-screen" href="/tabs/home-screen">
                 <ion-icon :icon="square" />
-                <ion-label>Home Screen</ion-label>
+                <ion-label>Page d'accueil</ion-label>
                 </ion-tab-button>
 
                 <ion-tab-button tab="review-screen" href="/tabs/review-screen">
                 <ion-icon :icon="ellipse" />
-                <ion-label>Review Screen</ion-label>
+                <ion-label>Apprentissage</ion-label>
                 </ion-tab-button>
 
                 <ion-tab-button tab="user-profile" href="/tabs/user-profile">
                 <ion-icon :icon="triangle" />
-                <ion-label>User Profile</ion-label>
+                <ion-label>Profil utilisateur</ion-label>
                 </ion-tab-button>
                 
             </ion-tab-bar>

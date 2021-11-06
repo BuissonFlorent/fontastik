@@ -2,7 +2,8 @@ import type {Config} from '@jest/types';
 
 const config: Config.InitialOptions = {
     verbose: true,
-    preset: '@vue/cli-plugin-unit-jest',
+    preset: 'ts-jest',
+    //preset: '@vue/cli-plugin-unit-jest',
     //preset: 'ts-jest/presets/default-esm',
     testEnvironment: 'jsdom',
     moduleFileExtensions: [

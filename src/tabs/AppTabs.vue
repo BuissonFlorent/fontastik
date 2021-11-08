@@ -28,7 +28,7 @@ import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouter
 import { ellipse, square, triangle } from 'ionicons/icons';
 
 export default {
-  name: 'Tabs',
+  name: 'AppTabs',
   components: { IonLabel, IonTabs, IonTabBar, IonTabButton, IonIcon, IonPage, IonRouterOutlet },
   setup() {
     return {

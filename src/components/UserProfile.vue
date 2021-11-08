@@ -8,7 +8,7 @@
 import AdminPanel from '@/components/AdminPanel.vue';
 
 export default { 
-    name: 'Profile',   
+    name: 'UserProfile',   
     setup() {
 
         const userInfo = JSON.parse(localStorage.getItem('userInfo') || "{}") ; //Need the default value for TS typing

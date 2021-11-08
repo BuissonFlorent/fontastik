@@ -61,7 +61,7 @@
 import { ref } from 'vue';
 
 export default { 
-    name: 'LoginComponent',   
+    name: 'UserLogin',   
     setup() {
 
         // Handling user information

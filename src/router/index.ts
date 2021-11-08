@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
-import Tabs from '@/tabs/Tabs.vue'
+import AppTabs from '@/tabs/AppTabs.vue'
 import HomeScreen from '@/tabs/HomeScreen.vue'
 
 const routes: Array<RouteRecordRaw> = [
@@ -10,7 +10,7 @@ const routes: Array<RouteRecordRaw> = [
     },
     {
         path: '/tabs/',
-        component: Tabs,
+        component: AppTabs,
         children: [
             {
                 path: 'home-screen',

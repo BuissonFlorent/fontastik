@@ -29,7 +29,7 @@ import { addDoc } from "firebase/firestore";
 import router from '@/router'
 
 export default { 
-    name: 'Registration',   
+    name: 'UserRegistration',   
     setup() {
 
         // Handling user information

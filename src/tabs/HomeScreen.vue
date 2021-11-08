@@ -13,7 +13,7 @@
                 <h1> Bienvenue sur Fontastik! </h1>
             </ion-header>
 
-        <login-component v-if="!userRegistered" />
+        <user-login v-if="!userRegistered" />
 
         </ion-content>
     </ion-page>
@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
-import LoginComponent from '@/components/Login.vue';
+import UserLogin from '@/components/UserLogin.vue';
 import { onMounted } from 'vue';
 import { useStore } from 'vuex';
 
@@ -29,7 +29,7 @@ import { useStore } from 'vuex';
 
 export default  {
     name: 'HomeScreen',
-    components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, LoginComponent },
+    components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, UserLogin },
     setup() {
 
      // INITIALIZING SESSION

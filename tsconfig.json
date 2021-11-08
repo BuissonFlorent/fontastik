@@ -1,40 +1,43 @@
 {
-  "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
-    "jsx": "preserve",
-    "importHelpers": true,
-    "moduleResolution": "node",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
-    "baseUrl": ".",
-    "types": [
-      "webpack-env",
-      "jest"
-    ],
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "strict": true,
+        "jsx": "preserve",
+        "importHelpers": true,
+        "moduleResolution": "node",
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true,
+        "baseUrl": ".",
+        "types": [
+        "webpack-env",
+        "jest"
+        ],
+        "paths": {
+        "@/*": [
+            "src/*"
+        ]
+        },
+        "lib": [
+        "esnext",
+        "dom",
+        "dom.iterable",
+        "scripthost"
+        ]
     },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
+    "files" : [
+        "./node_modules/vue-router/types/vue.d.ts",
+        "./node_modules/vuex/types/vue.d.ts"
+    ],
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue",
+        "tests/**/*.ts",
+        "tests/**/*.tsx" ],
+    "exclude": [
+        "node_modules", "archives"
     ]
-  },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
-    , "src/firebaseConfig.ts", "src/types/*.d.ts", "declaratiosrc/types/declarations.d.tstions.d.ts", "src/constants.ts", "src/components/Flashcard.test.ts"  ],
-  "exclude": [
-    "node_modules", "archives"
-  ]
 }

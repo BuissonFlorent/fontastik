@@ -1,4 +1,4 @@
-import { createStore } from 'vuex';
+import { createStore, Commit } from 'vuex';
 import { cardsCollection, reviewsCollection } from '@/firebaseConfig';
 import { getDocs, addDoc } from "firebase/firestore";
 import { Card, Review, User, State } from "@/interfaces";
@@ -175,7 +175,7 @@ export const store = createStore({
         }
     },
     actions : {
-        getCardsFromDB({ commit }: { commit: Function }) {
+        getCardsFromDB(context) {
             console.log("starting getCardsFromDB()");
             return new Promise<void>((resolve) => {
                 getDocs(cardsCollection)
@@ -185,17 +185,17 @@ export const store = createStore({
                         tempCards.push(doc.data());
                     });
                     tempCards.forEach((c) => c.nextReview = new Date(c.nextReview))
-                    commit('setStoreCards', tempCards)
+                    context.commit('setStoreCards', tempCards)
                     console.log(`successfully loaded ${store.state.cards.length} cards from the database`);
                     resolve();
                 })
                 .catch(() => console.log("error while loading cards from the database"))
             });
         },
-        initializeDeck({ commit }: { commit: Function }) {
+        initializeDeck({ commit }: { commit: Commit }) {
             commit('initializeDeck')
         },
-        setLocalCards({ commit }: { commit: Function }) {
+        setLocalCards({ commit }: { commit: Commit }) {
             commit('setLocalCards')
         }
     }

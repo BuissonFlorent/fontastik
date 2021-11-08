@@ -14,7 +14,7 @@ import { IonPage, IonHeader, IonToolbar, IonTitle } from '@ionic/vue';
 import FlashCard from '@/components/FlashCard.vue';
 
 export default {
-    name: 'ReviewScreen',
+    name: 'ReviewTab',
     components: { FlashCard, IonHeader, IonToolbar, IonTitle, IonPage }
 }
 </script>

@@ -1,35 +1,24 @@
 <template>
     <ion-page>
         <ion-header>
-        <ion-toolbar>
-            <ion-title>Page d'accueil</ion-title>
-        </ion-toolbar>
+            <ion-toolbar>
+                <ion-title>Page d'accueil</ion-title>
+            </ion-toolbar>
         </ion-header>
         <ion-content :fullscreen="true">
-            <ion-header collapse="condense">
-                <ion-toolbar>
-                <ion-title size="large">Home Screen (content)</ion-title>
-                </ion-toolbar>
-                <h1> Bienvenue sur Fontastik! </h1>
-            </ion-header>
-
-        <user-login v-if="!userRegistered" />
-
+            Bienvenue sur Fontastik!
         </ion-content>
     </ion-page>
 </template>
 
 <script lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
-import UserLogin from '@/components/UserLogin.vue';
 import { onMounted } from 'vue';
 import { useStore } from 'vuex';
 
-
-
 export default  {
-    name: 'HomeScreen',
-    components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, UserLogin },
+    name: 'HomeTab',
+    components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage },
     setup() {
 
      // INITIALIZING SESSION

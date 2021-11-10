@@ -12,9 +12,10 @@
 <script lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonTitle } from '@ionic/vue';
 import FlashCard from '@/components/FlashCard.vue';
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
     name: 'ReviewTab',
     components: { FlashCard, IonHeader, IonToolbar, IonTitle, IonPage }
-}
+});
 </script>

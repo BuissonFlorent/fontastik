@@ -27,8 +27,9 @@ import { IonCard, IonItem, IonLabel } from '@ionic/vue';
 import { ref } from 'vue';
 import { useStore } from 'vuex';
 import { Review } from "@/interfaces";
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
     name: "FlashCard",
     setup() {
 
@@ -78,7 +79,7 @@ export default {
         }; 
     },
     components: { IonCard, IonItem, IonLabel }
-}
+});
 </script>
 
 <style scoped>

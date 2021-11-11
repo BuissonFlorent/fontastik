@@ -2,9 +2,10 @@ import type {Config} from '@jest/types';
 
 const config: Config.InitialOptions = {
     verbose: true,
-    preset: 'ts-jest',
+    //preset: 'ts-jest',
     //preset: '@vue/cli-plugin-unit-jest',
     //preset: 'ts-jest/presets/default-esm',
+    //preset: 'ts-jest/presets/js-with-ts-esm', // requires  `"allowJs": true` in tsconfig.json
     testEnvironment: 'jsdom',
     moduleFileExtensions: [
         "js",
@@ -14,7 +15,8 @@ const config: Config.InitialOptions = {
     ],
     transform: {
         ".*\\.(vue)$": "@vue/vue3-jest",
-        "\\.[jt]sx?$": "babel-jest"
+        "^.+\\ts$": "ts-jest",
+        "^.+\\js$": "babel-jest"
     },
     testURL: "http://localhost/",
     maxWorkers: "50%",

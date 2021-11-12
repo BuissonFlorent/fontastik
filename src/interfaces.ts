@@ -17,8 +17,9 @@ export type Review = {
 
 export type User = {
     readonly userID: string;
-    readonly name: string;
-    readonly email?: string;
+    readonly userName: string;
+    readonly userPassword: string;
+    readonly userEmail?: string;
 }
 
 export type State = {

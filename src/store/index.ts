@@ -11,7 +11,9 @@ export const store = createStore({
             reviews: Array<Review>(),
             user: {
                 userID: "",
-                name: ""
+                userName: "",
+                userPassword: "",
+                userEmail: ""
             } as User
         }
     },

@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import { IonCard, IonItem, IonLabel } from '@ionic/vue';
+import { IonCard, IonItem, IonLabel, IonButton } from '@ionic/vue';
 import { ref } from 'vue';
 import { useStore } from 'vuex';
 import { Review } from "@/interfaces";
@@ -78,7 +78,7 @@ export default defineComponent({
             currentCard, fonWriting, frenchWriting, showCard, showTranslation, reviewOutcome
         }; 
     },
-    components: { IonCard, IonItem, IonLabel }
+    components: { IonCard, IonItem, IonLabel, IonButton }
 });
 </script>
 

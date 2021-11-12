@@ -6,7 +6,7 @@
             </ion-toolbar>
         </ion-header>
         <ion-content :fullscreen="true">
-            Bienvenue sur Fontastik!
+            Bienvenue sur Fontastik! Cette application va vous aider à apprendre la langue Fongbé.
         </ion-content>
     </ion-page>
 </template>

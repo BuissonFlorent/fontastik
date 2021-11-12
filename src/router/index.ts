@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import AppTabs from '@/tabs/AppTabs.vue'
 import HomeTab from '@/tabs/HomeTab.vue'
+import ProfileTab from '@/tabs/ProfileTab.vue'
+import ReviewTab from '@/tabs/ReviewTab.vue'
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -22,11 +24,11 @@ const routes: Array<RouteRecordRaw> = [
             },
             {
                 path: 'profile-tab',
-                component: () => import('@/tabs/ProfileTab.vue')
+                component: ProfileTab
             },
             {
                 path: 'review-tab',
-                component: () => import('@/tabs/ReviewTab.vue')
+                component: ReviewTab
             }
         ]
     }

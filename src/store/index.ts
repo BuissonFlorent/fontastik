@@ -1,5 +1,5 @@
 import { createStore, Commit } from 'vuex';
-import { cardsCollection, reviewsCollection } from '@/firebaseConfig';
+import { cardsCollection, reviewsCollection, usersCollection } from '@/firebaseConfig';
 import { getDocs, addDoc } from "firebase/firestore";
 import { Card, Review, User, State } from "@/interfaces";
 
@@ -191,6 +191,20 @@ export const store = createStore({
         }
     },
     actions : {
+        // USER
+        sendUserToDB(context, user: User){
+            console.log("starting sendUserToDB()");
+            return new Promise<void>((resolve) => {
+                try {
+                    addDoc(usersCollection, user);
+                    resolve();
+                }
+                catch(e) {
+                    console.log(`error sending the user to the database`);
+                    console.log(e);
+                }
+            })
+        },
         getCardsFromDB(context) {
             console.log("starting getCardsFromDB()");
             return new Promise<void>((resolve) => {

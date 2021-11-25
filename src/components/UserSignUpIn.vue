@@ -41,18 +41,16 @@ export default {
 
         // Setup for anonymous users
         const anonymousUser = () => {
+            const newID = Date.now().toString(36).substr(12) + Math.random().toString(36).substr(12);
             const anonymousUser: User = {
-                userID: "anonymousID",
+                userID: newID,
                 userName: "anonymousName",
                 userPassword: "anonymousPassword",
                 userEmail: "anonymousEmail"
             };
-            //console.log(`committing setStoreUser with ${anonymousUser.userID}`);
             store.commit('setStoreUser', anonymousUser);
-            //console.log(`userID in store state is now ${store.state.user.userID}`);
-            //console.log(`committing setLocalUser with ${anonymousUser.userID}`);
             store.commit('setLocalUser', anonymousUser);
-            //console.log(`userID in local state is now ${store.state.user.userID}`)
+            store.dispatch('sendUserToDB', anonymousUser);
             router.push('/tabs/review-tab')
         }
         return { anonymousUser}

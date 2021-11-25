@@ -28,7 +28,6 @@
         ]
     },
     "files" : [
-        "./node_modules/vue-router/types/vue.d.ts",
         "./node_modules/vuex/types/vue.d.ts"
     ],
     "include": [

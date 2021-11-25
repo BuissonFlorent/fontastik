@@ -13,9 +13,9 @@ export default {
     name: 'UserProfile',   
     setup() {
 
-        const userInfo = JSON.parse(localStorage.getItem('userInfo') || "{}") ; //Need the default value for TS typing
+        const userInfo = JSON.parse(localStorage.getItem('user') || "{}") ; //Need the default value for TS typing
         
-        const userName = (userInfo ? userInfo.name : 'Etudiant');
+        const userName = (userInfo.userName != "anonymousName" ? userInfo.userName : 'cher étudiant/chère étudiante !');
         const userID =  (userInfo ? userInfo.userID : '');
         return { userName, userID }
     },

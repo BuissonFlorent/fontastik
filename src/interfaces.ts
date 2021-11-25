@@ -26,5 +26,6 @@ export type State = {
     cards: Card[];
     deck: Card[];
     reviews: Review[];
+    userRegistered: boolean;
     user: User;
 }

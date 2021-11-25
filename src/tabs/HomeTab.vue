@@ -21,10 +21,7 @@ export default  {
     components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage },
     setup() {
 
-     // INITIALIZING SESSION
         const store = useStore();
-        const userRegistered = (localStorage.userInfo ? true : false);
-
 
         // GETTING CARDS TO REVIEW
         const getCards = () => {
@@ -42,17 +39,14 @@ export default  {
         }
 
         // RUNNING ALL SETUP AT MOUNTING
-        const initSession = () => {
+        onMounted(() => {
             //console.log("mounting Home Screen...");
-            if(userRegistered) {
-                console.log("user registered: ", userRegistered);
-                store.commit('getUser');
-                getCards();
+            if(localStorage.user) {
+                store.commit('getLocalUser');
             }
-        }
-        onMounted(initSession)
-
-        return { userRegistered }
+            //console.log(`When HomeTab is mounted, userName in store state is ${store.state.user.userName} and userRegistered is ${store.state.userRegistered}`);
+            getCards();
+        })
     }
 }
 </script>

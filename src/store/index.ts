@@ -9,6 +9,7 @@ export const store = createStore({
             cards: Array<Card>(),
             deck: Array<Card>(),
             reviews: Array<Review>(),
+            userRegistered: false,
             user: {
                 userID: "",
                 userName: "",
@@ -23,29 +24,40 @@ export const store = createStore({
         }
     },
     mutations : {
+        // USER
+        setStoreUser(state: State, user: User) {
+            state.user = user;
+        },
+        setLocalUser(state: State) {
+            localStorage.setItem('user', JSON.stringify(state.user));
+                console.log("successfully added user to the local storage");
+        },
+        getLocalUser(state: State) {
+            try {
+                //console.log(`starting getLocalUser()`);
+                const localUser: User = JSON.parse(localStorage.getItem('user') || "{}");
+                //console.log(`user information received from local storage: ${localUser.userName}`);
+                state.user = localUser;
+                state.userRegistered = true;
+                //console.log(`user information registered in store state: ${state.user.userName}`);
+            } catch(e) {
+                console.log(`an error occurred while trying to load user information from the local storage`);
+                console.log(e);
+            }
+        },
+        // CARDS
         setStoreCards(state: State, importedCards: Array<Card>) {
             state.cards = importedCards;
         },
         getLocalCards(state: State) {
             try {
-                console.log("initiating getLocalCards");
-                const localCards: Array<Card> = JSON.parse(localStorage.getItem('cards') || "{}") ; //Need the default value for TS typing
-                state.cards = localCards;
-                state.cards.map((c) => { c.nextReview = new Date(c.nextReview)})
-                console.log(`successfully loaded ${store.state. cards.length} cards from the local storage`);
-                console.log(`the first card is ${store.state.cards[0].fonWriting}`)
+                //console.log("initiating getLocalCards");
+                const localCardsObject = JSON.parse(localStorage.getItem('cards') || "{}") ; //Need the default value for TS typing
+                state.cards = Object.values(localCardsObject);
+                //console.log(`successfully loaded ${state.cards.length} cards from the local storage`);
+                //console.log(`the first card is ${state.cards[0].fonWriting}`);
             } catch(e) {
                 console.log("an error occurred while trying to load cards from the local storage");
-                console.log(e);
-            }
-        },
-        getUser(state: State) {
-            try {
-                console.log("starting getUser()");
-                const localUser: User = JSON.parse(localStorage.getItem('userInfo') || "{}")
-                state.user = localUser;
-            } catch(e) {
-                console.log("an error occurred while trying to load user information from the local storage");
                 console.log(e);
             }
         },
@@ -72,6 +84,7 @@ export const store = createStore({
         },
         initializeDeck(state: State) {
             console.log(`starting initializeDeck()`);
+            state.cards = state.cards.map((c: Card) => { c.nextReview = new Date(c.nextReview); return c;})
             console.log(`the first card in the store state has nextReview=${state.cards[0].nextReview}`)
             const maxDailyNew = 5;
             const maxDailyTotal = 10;
@@ -106,6 +119,7 @@ export const store = createStore({
                 console.log("card in deck is: ", c.fonWriting) 
             });
         },
+        // REVIEWS
         logReview(state: State, review: Review) {
             state.reviews.push(review)
             const loggedReview = state.reviews[state.reviews.length - 1];

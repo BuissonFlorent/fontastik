@@ -15,12 +15,18 @@ import { EmailAuthProvider } from "firebase/auth";
 import { firebaseAuth } from '@/firebaseConfig';
 import { auth } from 'firebaseui';
 import 'firebaseui/dist/firebaseui.css';
+import { User } from "@/interfaces";
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 
 import { IonContent, IonCard, IonCardContent, IonButton } from '@ionic/vue';
 
 export default {
     name: 'UserSignUpIn',
     setup() {
+
+        const store = useStore();
+        const router = useRouter();
 
         //Initializing the FirebaseUI Widget using Firebase.
         const initComponent = () => {
@@ -35,8 +41,19 @@ export default {
 
         // Setup for anonymous users
         const anonymousUser = () => {
-            //NEED MORE WORK HERE
-            return true
+            const anonymousUser: User = {
+                userID: "anonymousID",
+                userName: "anonymousName",
+                userPassword: "anonymousPassword",
+                userEmail: "anonymousEmail"
+            };
+            //console.log(`committing setStoreUser with ${anonymousUser.userID}`);
+            store.commit('setStoreUser', anonymousUser);
+            //console.log(`userID in store state is now ${store.state.user.userID}`);
+            //console.log(`committing setLocalUser with ${anonymousUser.userID}`);
+            store.commit('setLocalUser', anonymousUser);
+            //console.log(`userID in local state is now ${store.state.user.userID}`)
+            router.push('/tabs/review-tab')
         }
         return { anonymousUser}
     },

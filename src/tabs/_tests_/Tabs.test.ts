@@ -1,12 +1,36 @@
-import { render } from '@testing-library/vue';
-//import AppTabs from '../AppTabs.vue';
-import HomeTab from '../HomeTab.vue';
+import { mount } from '@vue/test-utils';
+import App from '../App.vue';
+
+describe('Mounted App', () => {
+    const wrapper = mount(App);
+  
+    test('does a wrapper exist', () => {
+      expect(wrapper.exists()).toBe(true)
+    })
+})
+
+
+
+import HomeScreen from '@/tabs/HomeScreen.vue'
+
+describe('HomeScreen.vue', () => {
+    it('renders home screen view', () => {
+        const wrapper = mount(HomeScreen)
+        expect(wrapper.text()).toMatch('Home Screen')
+    })
+})
+
+/*test('sanity test', () => {
+    return
+})*/
+
+/*import HomeTab from '../HomeTab.vue';
 import ReviewTab from '../ReviewTab.vue';
 
 describe('Home tab', () => {
 
     it('should render correctly', () => {
-        const { getByText } = render(HomeTab);
+        
 
         getByText(`Page d'accueil`);
     })
@@ -15,22 +39,9 @@ describe('Home tab', () => {
 describe('Review tab', () => {
 
     it('should render correctly', () => {
-        const { getByText } = render(ReviewTab//, { stubs: ['FlashCard.vue'] }
-        );
+        
 
         getByText(`Apprentissage`);
-    })
-})
-
-
-/*import { mount } from '@vue/test-utils';
-import App from '../App.vue';
-
-describe('Mounted App', () => {
-    const wrapper = mount(App);
-  
-    test('does a wrapper exist', () => {
-      expect(wrapper.exists()).toBe(true)
     })
 })*/
 

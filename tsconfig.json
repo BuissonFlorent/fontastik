@@ -2,7 +2,7 @@
     "compilerOptions": {
         "target": "esnext",
         "module": "esnext",
-        "strict": true,
+        "strict": false,
         "jsx": "preserve",
         "importHelpers": true,
         "moduleResolution": "node",
@@ -16,9 +16,9 @@
         "jest"
         ],
         "paths": {
-        "@/*": [
-            "src/*"
-        ]
+            "@/*": [
+                "src/*"
+            ]
         },
         "lib": [
         "esnext",
@@ -27,9 +27,6 @@
         "scripthost"
         ]
     },
-    "files" : [
-        "./node_modules/vuex/types/vue.d.ts"
-    ],
     "include": [
         "src/**/*.ts",
         "src/**/*.tsx",

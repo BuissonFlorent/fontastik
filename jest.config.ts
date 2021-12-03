@@ -1,4 +1,26 @@
-import type {Config} from '@jest/types';
+module.exports = {
+    preset: 'ts-jest',
+    testEnvironment: 'jsdom',
+    transform: {
+        "^.+\\.vue$": "@vue/vue3-jest",
+        "^.+\\.ts$": "ts-jest",
+        "^.+\\.js$": "babel-jest"
+    },
+    moduleDirectories: ["node_modules", "src"],
+    moduleFileExtensions: [
+        "js",
+        "ts",
+        "json",
+        "vue"
+    ],
+    moduleNameMapper: {
+        '^~/(.*)$': '<rootDir>/$1',
+        '^src/(.*)$': '<rootDir>/src/$1',
+        "^@/(.*)$": "<rootDir>/src/$1"      // support the same @ -> src alias mapping in source code
+    },
+};
+
+/*import type {Config} from '@jest/types';
 
 const config: Config.InitialOptions = {
     verbose: true,
@@ -22,7 +44,7 @@ const config: Config.InitialOptions = {
     maxWorkers: "50%",
     rootDir: "."
 };
-export default config;
+export default config;*/
 
 // ALTERNATIVE POSSIBLE CONFIGURATIONS BELOW
 

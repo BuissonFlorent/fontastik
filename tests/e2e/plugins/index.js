@@ -9,7 +9,7 @@
 // /* eslint-disable import/no-extraneous-dependencies, global-require */
 // const webpack = require('@cypress/webpack-preprocessor')
 
-module.exports = (on, config) => {
+/*module.exports = (on, config) => {
   // on('file:preprocessor', webpack({
   //  webpackOptions: require('@vue/cli-service/webpack.config'),
   //  watchOptions: {}
@@ -22,4 +22,4 @@ module.exports = (on, config) => {
     videosFolder: 'tests/e2e/videos',
     supportFile: 'tests/e2e/support/index.js'
   })
-}
+}*/
